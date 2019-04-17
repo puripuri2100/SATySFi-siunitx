@@ -1,0 +1,207 @@
+@require: pervasives
+@require: math
+
+
+module Siunitx : sig
+
+direct \si : [math] inline-cmd
+
+
+direct \yocto : [] math-cmd
+direct \zepto : [] math-cmd
+direct \atto  : [] math-cmd
+direct \femto : [] math-cmd
+direct \pico  : [] math-cmd
+direct \nano  : [] math-cmd
+direct \micro : [] math-cmd
+direct \milli : [] math-cmd
+direct \centi : [] math-cmd
+direct \deci  : [] math-cmd
+direct \deca  : [] math-cmd
+direct \deka  : [] math-cmd
+direct \hecto : [] math-cmd
+direct \kilo  : [] math-cmd
+direct \mega  : [] math-cmd
+direct \giga  : [] math-cmd
+direct \tera  : [] math-cmd
+direct \peta  : [] math-cmd
+direct \exa   : [] math-cmd
+direct \zetta : [] math-cmd
+direct \yotta : [] math-cmd
+
+direct \gram     : [] math-cmd
+direct \second   : [] math-cmd
+direct \ampere   : [] math-cmd
+direct \candela  : [] math-cmd
+direct \kelvin   : [] math-cmd
+direct \kilogram : [] math-cmd
+direct \metre    : [] math-cmd
+direct \meter    : [] math-cmd
+direct \mole     : [] math-cmd
+
+direct \celsius : [] math-cmd
+direct \becquerel     : [] math-cmd
+direct \degreeCelsius : [] math-cmd
+direct \coulomb       : [] math-cmd
+direct \farad         : [] math-cmd
+direct \gray          : [] math-cmd
+direct \hertz         : [] math-cmd
+direct \henry         : [] math-cmd
+direct \joule         : [] math-cmd
+direct \katal         : [] math-cmd
+direct \lumen         : [] math-cmd
+direct \lux           : [] math-cmd
+direct \newton        : [] math-cmd
+direct \ohm           : [] math-cmd
+direct \pascal        : [] math-cmd
+direct \radian        : [] math-cmd
+direct \siemens       : [] math-cmd
+direct \sievert       : [] math-cmd
+direct \steradian     : [] math-cmd
+direct \tesla         : [] math-cmd
+direct \volt          : [] math-cmd
+direct \watt          : [] math-cmd
+direct \weber         : [] math-cmd
+
+direct \day       : [] math-cmd
+direct \degree    : [] math-cmd
+direct \hectare   : [] math-cmd
+direct \hour      : [] math-cmd
+direct \litre     : [] math-cmd
+direct \liter     : [] math-cmd
+direct \arcminute : [] math-cmd
+direct \minute    : [] math-cmd
+direct \arcsecond : [] math-cmd
+direct \tonne     : [] math-cmd
+
+direct \astronomicalunit : [] math-cmd
+direct \atomicmassunit   : [] math-cmd
+direct \bohr             : [] math-cmd
+direct \clight           : [] math-cmd
+direct \dalton           : [] math-cmd
+direct \electronmass     : [] math-cmd
+direct \electronvolt     : [] math-cmd
+direct \elementarycharge : [] math-cmd
+direct \hartree : [] math-cmd
+%direct \planckbar : [] math-cmd
+
+direct \angstrom      : [] math-cmd
+direct \bar           : [] math-cmd
+direct \barn          : [] math-cmd
+direct \bel           : [] math-cmd
+direct \decibel       : [] math-cmd
+direct \knot          : [] math-cmd
+direct \mmHg          : [] math-cmd
+direct \nauticalmile  : [] math-cmd
+direct \neper         : [] math-cmd
+
+end = struct
+
+
+
+let ord = math-char MathOrd
+
+let-inline ctx \si si = embed-math ctx ${#si}
+
+let-math \math-sub = math-sub
+let-math \math-sup = math-sup
+
+
+
+let-math \yocto = ord `y`
+let-math \zepto = ord `z`
+let-math \atto  = ord `a`
+let-math \femto = ord `f`
+let-math \pico  = ord `p`
+let-math \nano  = ord `n`
+let-math \micro = ord `μ`
+let-math \milli = ord `m`
+let-math \centi = ord `c`
+let-math \deci  = ord `d`
+let-math \deca  = ord `da`
+let-math \deka  = ord `da`
+let-math \hecto = ord `h`
+let-math \kilo  = ord `k`
+let-math \mega  = ord `M`
+let-math \giga  = ord `G`
+let-math \tera  = ord `T`
+let-math \peta  = ord `P`
+let-math \exa   = ord `E`
+let-math \zetta = ord `Z`
+let-math \yotta = ord `Y`
+
+
+
+let-math \gram     = ord `g`
+let-math \second   = ord `s`
+let-math \ampere   = ord `A`
+let-math \candela  = ord `cd`
+let-math \kelvin   = ord `K`
+let-math \kilogram = ${\kilo\gram}
+let-math \metre    = ord `m`
+let-math \meter    = ${\metre}
+let-math \mole     = ord `mol`
+
+
+let-math \celsius =
+  let-math \C = ord `C` in
+    ${\math-sup{}{\circ}\C}
+let-math \becquerel     = ord `Bq`
+let-math \degreeCelsius = ${\celsius}
+let-math \coulomb       = ord `C`
+let-math \farad         = ord `F`
+let-math \gray          = ord `Gy`
+let-math \hertz         = ord `Hz`
+let-math \henry         = ord `H`
+let-math \joule         = ord `J`
+let-math \katal         = ord `kat`
+let-math \lumen         = ord `lm`
+let-math \lux           = ord `lx`
+let-math \newton        = ord `N`
+let-math \ohm           = ord `Ω`
+let-math \pascal        = ord `Pa`
+let-math \radian        = ord `rad`
+let-math \siemens       = ord `S`
+let-math \sievert       = ord `Sv`
+let-math \steradian     = ord `sr`
+let-math \tesla         = ord `T`
+let-math \volt          = ord `V`
+let-math \watt          = ord `W`
+let-math \weber         = ord `Wb`
+
+let-math \day       = ord `d`
+let-math \degree    = ${\math-sup{}{\circ}}
+let-math \hectare   = ord `ha`
+let-math \hour      = ord `h`
+let-math \litre     = ord `l`
+let-math \liter     = ord `L`
+let-math \arcminute = ord `'`
+let-math \minute    = ord `min`
+let-math \arcsecond = ord `''`
+let-math \tonne     = ord `t`
+
+
+let-math \astronomicalunit = ord `au`
+let-math \atomicmassunit   = ord `u`
+let-math \bohr             = ${\math-sub{a}{0}}
+let-math \clight           = ${\math-sub{c}{0}}
+let-math \dalton           = ord `Da`
+let-math \electronmass     = ${\math-sub{m}{e}}
+let-math \electronvolt     = ord `eV`
+let-math \elementarycharge = ${e}
+let-math \hartree =
+  let-math \h = ord `h` in
+    ${\math-sub{E}{\h}}
+%let-math \planckbar = ord `¯h`
+
+let-math \angstrom     = ord `Å`
+let-math \bar          = ord `bar`
+let-math \barn         = ord `b`
+let-math \bel          = ord `B`
+let-math \decibel      = ord `dB`
+let-math \knot         = ord `kn`
+let-math \mmHg         = ord `mmHg`
+let-math \nauticalmile = ord `M`
+let-math \neper        = ord `Np`
+
+end
