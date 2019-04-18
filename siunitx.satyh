@@ -39,7 +39,7 @@ direct \metre    : [] math-cmd
 direct \meter    : [] math-cmd
 direct \mole     : [] math-cmd
 
-direct \celsius : [] math-cmd
+direct \celsius       : [] math-cmd
 direct \becquerel     : [] math-cmd
 direct \degreeCelsius : [] math-cmd
 direct \coulomb       : [] math-cmd
@@ -82,8 +82,8 @@ direct \dalton           : [] math-cmd
 direct \electronmass     : [] math-cmd
 direct \electronvolt     : [] math-cmd
 direct \elementarycharge : [] math-cmd
-direct \hartree : [] math-cmd
-%direct \planckbar : [] math-cmd
+direct \hartree          : [] math-cmd
+%direct \planckbar        : [] math-cmd
 
 direct \angstrom      : [] math-cmd
 direct \bar           : [] math-cmd
@@ -100,6 +100,7 @@ end = struct
 
 
 let ord = math-char MathOrd
+let prefix = math-char MathPrefix
 
 let-inline ctx \si si = embed-math ctx ${#si}
 
@@ -108,27 +109,27 @@ let-math \math-sup = math-sup
 
 
 
-let-math \yocto = ord `y`
-let-math \zepto = ord `z`
-let-math \atto  = ord `a`
-let-math \femto = ord `f`
-let-math \pico  = ord `p`
-let-math \nano  = ord `n`
-let-math \micro = ord `μ`
-let-math \milli = ord `m`
-let-math \centi = ord `c`
-let-math \deci  = ord `d`
-let-math \deca  = ord `da`
-let-math \deka  = ord `da`
-let-math \hecto = ord `h`
-let-math \kilo  = ord `k`
-let-math \mega  = ord `M`
-let-math \giga  = ord `G`
-let-math \tera  = ord `T`
-let-math \peta  = ord `P`
-let-math \exa   = ord `E`
-let-math \zetta = ord `Z`
-let-math \yotta = ord `Y`
+let-math \yocto = prefix `y`
+let-math \zepto = prefix `z`
+let-math \atto  = prefix `a`
+let-math \femto = prefix `f`
+let-math \pico  = prefix `p`
+let-math \nano  = prefix `n`
+let-math \micro = prefix `μ`
+let-math \milli = prefix `m`
+let-math \centi = prefix `c`
+let-math \deci  = prefix `d`
+let-math \deca  = prefix `da`
+let-math \deka  = prefix `da`
+let-math \hecto = prefix `h`
+let-math \kilo  = prefix `k`
+let-math \mega  = prefix `M`
+let-math \giga  = prefix `G`
+let-math \tera  = prefix `T`
+let-math \peta  = prefix `P`
+let-math \exa   = prefix `E`
+let-math \zetta = prefix `Z`
+let-math \yotta = prefix `Y`
 
 
 
@@ -140,6 +141,8 @@ let-math \kelvin   = ord `K`
 let-math \kilogram = ${\kilo\gram}
 let-math \metre    = ord `m`
 let-math \meter    = ${\metre}
+let-math \kilometre = ${\kilo\metre}
+let-math \kilometer = ${\kilo\meter}
 let-math \mole     = ord `mol`
 
 
