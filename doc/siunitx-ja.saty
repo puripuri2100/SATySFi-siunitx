@@ -1,0 +1,216 @@
+@require: stdja
+@require: code
+@require: table
+@require: itemize
+@import: ../siunitx
+
+
+document (|
+  title = {siunitxパッケージ};
+  author = {puripuri2100};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +p{siunitxパッケージは\SATySFi;でSI単位（と、一部の非SI単位）をサポートするパッケージです。}
+  +p{提供されるコマンドは全て\code(`math`);型で、\code(`${5\kilogram}`);のように数式環境内で記述します。スペーシングが一部おかしい箇所がありますが、今後改良を加えていくつもりです。}
+  +pn{SI接頭辞}
+  +pn{\tabular(fun t -> (
+        let (c, l, r) = (t#c, t#l, t#r) in
+        [
+            [l {定義}; c {コマンド名}; c {出力結果}; l {定義}; c {コマンド名}; c {出力結果};];
+            [l {${10^{-24}}} ; c {\code(`\yocto`);}; c {${\yocto}}; l {${10^{1}}} ; c {\code(`\deca`);}; c {${\deca}}];
+            [l {${10^{-21}}} ; c {\code(`\zeptp`);}; c {${\zepto}}; l {${10^{2}}} ; c {\code(`\hecto`);}; c {${\hecto}}];
+            [l {${10^{-18}}} ; c {\code(`\atto`);}; c {${\atto}}; l {${10^{3}}} ; c {\code(`\kilo`);}; c {${\kilo}}];
+            [l {${10^{-15}}} ; c {\code(`\femto`);}; c {${\femto}}; l {${10^{6}}} ; c {\code(`\mega`);}; c {${\mega}}];
+            [l {${10^{-12}}} ; c {\code(`\pico`);}; c {${\pico}}; l {${10^{9}}} ; c {\code(`\giga`);}; c {${\giga}}];
+            [l {${10^{-9}}} ; c {\code(`\nano`);}; c {${\nano}}; l {${10^{12}}} ; c {\code(`\tera`);}; c {${\tera}}];
+            [l {${10^{-6}}} ; c {\code(`\micro`);}; c {${\micro}}; l {${10^{15}}} ; c {\code(`\peta`);}; c {${\peta}}];
+            [l {${10^{-3}}} ; c {\code(`\milli`);}; c {${\milli}}; l {${10^{18}}} ; c {\code(`\exa`);}; c {${\exa}}];
+            [l {${10^{-2}}} ; c {\code(`\centi`);}; c {${\centi}}; l {${10^{21}}} ; c {\code(`\zetta`);}; c {${\zetta}};];
+            [l {${10^{-1}}} ; c {\code(`\deci`);}; c {${\deci}}; l {${10^{24}}} ; c {\code(`\yotta`);}; c {${\yotta}}];
+        ]
+        ))(fun xs ys -> (
+          let thin = stroke 0.5pt Color.black in
+          let thick = stroke 1pt Color.black in
+          match (ys, List.reverse ys) with
+          | (y0 :: y1 :: y2 :: _, ylast :: _) ->
+            ( match (xs, List.reverse xs) with
+              | (x0 :: x1 :: _ :: x3 :: _, xlast :: _) ->
+                let gsY1 =
+                  [y1] |> List.map (fun y ->
+                    thin (Gr.line (x0, y) (xlast, y))) in
+                let gsY2 =
+                  [y0; ylast] |> List.map (fun y ->
+                    thick (Gr.line (x0, y) (xlast, y))) in
+                List.concat [
+                  gsY1; gsY2;
+                ]
+              | _ -> []
+              )
+          | _ -> []
+    ));
+  }
+
+  +pn{SI基本単位}
+  +pn{\tabular(fun t -> (
+        let (c, l, r) = (t#c, t#l, t#r) in
+        [
+            [l {量}; c {コマンド名}; c {出力結果};];
+            [l {長さ} ; c {\code(`\metre`);}; c {${\metre}}];
+            [l {長さ} ; c {\code(`\meter`);}; c {${\meter}}];
+            [l {質量} ; c {\code(`\kilogram`);}; c {${\kilogram}}];
+            [l {時間} ; c {\code(`\second`);}; c {${\second}}];
+            [l {電流} ; c {\code(`\ampere`);}; c {${\ampere}}];
+            [l {熱力学温度} ; c {\code(`\kelvin`);}; c {${\kelvin}}];
+            [l {物質量} ; c {\code(`\mole`);}; c {${\mole}}];
+            [l {光度} ; c {\code(`\candela`);}; c {${\candela}}];
+        ]
+        ))(fun xs ys -> (
+          let thin = stroke 0.5pt Color.black in
+          let thick = stroke 1pt Color.black in
+          match (ys, List.reverse ys) with
+          | (y0 :: y1 :: y2 :: _, ylast :: _) ->
+            ( match (xs, List.reverse xs) with
+              | (x0 :: x1 :: _ :: x3 :: _, xlast :: _) ->
+                let gsY1 =
+                  [y1] |> List.map (fun y ->
+                    thin (Gr.line (x0, y) (xlast, y))) in
+                let gsY2 =
+                  [y0; ylast] |> List.map (fun y ->
+                    thick (Gr.line (x0, y) (xlast, y))) in
+                List.concat [
+                  gsY1; gsY2;
+                ]
+              | _ -> []
+              )
+          | _ -> []
+    ));
+  }
+
+  +pn{SI組立単位}
+  +pn{\tabular(fun t -> (
+        let (c, l, r) = (t#c, t#l, t#r) in
+        [
+            [l {量}; c {コマンド名}; c {出力結果}; l {量}; c {コマンド名}; c {出力結果};];
+
+            [l {ベクレル} ; c {\code(`\becquerel`);}; c {${\becquerel}}; l {ニュートン} ; c {\code(`\newton`);}; c {${\newton}}];
+            [l {セルシウス度} ; c {\code(`\degreeCelsius`);}; c {${\degreeCelsius}}; l {オーム} ; c {\code(`\ohm`);}; c {${\ohm}}];
+            [l {クローン} ; c {\code(`\coulomb`);}; c {${\coulomb}}; l {パスカル} ; c {\code(`\pascal`);}; c {${\pascal}}];
+            [l {ファラド}; c{\code(`\farad`);}; c{${\farad}}; l {ラジアン} ; c {\code(`\radian`);}; c {${\radian}}];
+            [l {グレイ}; c{\code(`\gray`);}; c{${\gray}}; l {ジーメンス} ; c {\code(`\siemens`);}; c {${\siemens}}];
+            [l {ヘルツ}; c{\code(`\hertz`);}; c{${\hertz}}; l {シーベルト} ; c {\code(`\sievert`);}; c {${\sievert}}];
+            [l {ヘンリー}; c{\code(`\henry`);}; c{${\henry}}; l {ステラジアン} ; c {\code(`\steradian`);}; c {${\steradian}}];
+            [l {ジュール}; c{\code(`\joule`);}; c{${\joule}}; l {テスラ} ; c {\code(`\tesla`);}; c {${\tesla}}];
+            [l {カタール}; c{\code(`\katal`);}; c{${\katal}}; l {ボルト} ; c {\code(`\volt`);}; c {${\volt}}];
+            [l {ルーメン}; c{\code(`\lumen`);}; c{${\lumen}}; l {ワット} ; c {\code(`\watt`);}; c {${\watt}}];
+            [l {ルクス}; c{\code(`\lux`);}; c{${\lux}}; l {ウェーバ} ; c {\code(`\\weber`);}; c {${\\weber}}];
+        ]
+        ))(fun xs ys -> (
+          let thin = stroke 0.5pt Color.black in
+          let thick = stroke 1pt Color.black in
+          match (ys, List.reverse ys) with
+          | (y0 :: y1 :: y2 :: _, ylast :: _) ->
+            ( match (xs, List.reverse xs) with
+              | (x0 :: x1 :: _ :: x3 :: _, xlast :: _) ->
+                let gsY1 =
+                  [y1] |> List.map (fun y ->
+                    thin (Gr.line (x0, y) (xlast, y))) in
+                let gsY2 =
+                  [y0; ylast] |> List.map (fun y ->
+                    thick (Gr.line (x0, y) (xlast, y))) in
+                List.concat [
+                  gsY1; gsY2;
+                ]
+              | _ -> []
+              )
+          | _ -> []
+    ));
+  }
+
+  +pn{SI併用単位}
+  +pn{\tabular(fun t -> (
+        let (c, l, r) = (t#c, t#l, t#r) in
+        [
+            [l {量}; c {コマンド名}; c {出力結果};];
+
+            [l {日} ; c {\code(`\day`);}; c {${\day}};];
+            [l {度} ; c {\code(`\degree`);}; c {${\degree}};];
+            [l {ヘクタール} ; c {\code(`\hectare`);}; c {${\hectare}};];
+            [l {時} ; c {\code(`\hour`);}; c {${\hour}};];
+            [l {リットル} ; c {\code(`\litre`);}; c {${\litre}};];
+            [l {リットル} ; c {\code(`\liter`);}; c {${\liter}};];
+            [l {分} ; c {\code(`\arcminute`);}; c {${\arcminute}};];
+            [l {分} ; c {\code(`\minute`);}; c {${\minute}};];
+            [l {秒} ; c {\code(`\arcsecond`);}; c {${\arcsecond}};];
+            [l {トン} ; c {\code(`\tonne`);}; c {${\tonne}};];
+        ]
+        ))(fun xs ys -> (
+          let thin = stroke 0.5pt Color.black in
+          let thick = stroke 1pt Color.black in
+          match (ys, List.reverse ys) with
+          | (y0 :: y1 :: y2 :: _, ylast :: _) ->
+            ( match (xs, List.reverse xs) with
+              | (x0 :: x1 :: _ :: x3 :: _, xlast :: _) ->
+                let gsY1 =
+                  [y1] |> List.map (fun y ->
+                    thin (Gr.line (x0, y) (xlast, y))) in
+                let gsY2 =
+                  [y0; ylast] |> List.map (fun y ->
+                    thick (Gr.line (x0, y) (xlast, y))) in
+                List.concat [
+                  gsY1; gsY2;
+                ]
+              | _ -> []
+              )
+          | _ -> []
+    ));
+  }
+
+
+  +pn{非SI単位}
+  +pn{\tabular(fun t -> (
+        let (c, l, r) = (t#c, t#l, t#r) in
+        [
+            [l {量}; c {コマンド名}; c {出力結果};];
+
+            [l {天文単位} ; c {\code(`\astronomicalunit`);}; c {${\astronomicalunit}};];
+            [l {原子質量単位} ; c {\code(`\atomicmassunit`);}; c {${\atomicmassunit}};];
+            [l {ボーア半径}; c{\code(`\bohr`);}; c{${\bohr}};];
+            [l {光速}; c{\code(`\clight`);}; c{${\clight}};];
+            [l {統一原子質量単位}; c{\code(`\dalton`);}; c{${\dalton}};];
+            [l {電子の静止質量}; c{\code(`\electronmass`);}; c{${\electronmass}};];
+            [l {電子ボルト}; c{\code(`\electronvolt`);}; c{${\electronvolt}};];
+            [l {電気素量}; c{\code(`\elementarycharge`);}; c{${\elementarycharge}};];
+            [l {ハートリー}; c{\code(`\hartree`);}; c{${\hartree}};];
+            [l {オングストローム}; c{\code(`\angstrom`);}; c{${\angstrom}};];
+            [l {バール}; c{\code(`\bar`);}; c{${\bar}};];
+            [l {バーン}; c{\code(`\barn`);}; c{${\barn}};];
+            [l {ベル}; c{\code(`\bel`);}; c{${\bel}};];
+            [l {デシベル}; c{\code(`\decibel`);}; c{${\decibel}};];
+            [l {ノット}; c{\code(`\knot`);}; c{${\knot}};];
+            [l {水銀柱ミリメートル}; c{\code(`\mmHg`);}; c{${\mmHg}};];
+            [l {海里}; c{\code(`\nauticalmile`);}; c{${\nauticalmile}};];
+            [l {ネーパ}; c{\code(`\neper`);}; c{${\neper}};];
+        ]
+        ))(fun xs ys -> (
+          let thin = stroke 0.5pt Color.black in
+          let thick = stroke 1pt Color.black in
+          match (ys, List.reverse ys) with
+          | (y0 :: y1 :: y2 :: _, ylast :: _) ->
+            ( match (xs, List.reverse xs) with
+              | (x0 :: x1 :: _ :: x3 :: _, xlast :: _) ->
+                let gsY1 =
+                  [y1] |> List.map (fun y ->
+                    thin (Gr.line (x0, y) (xlast, y))) in
+                let gsY2 =
+                  [y0; ylast] |> List.map (fun y ->
+                    thick (Gr.line (x0, y) (xlast, y))) in
+                List.concat [
+                  gsY1; gsY2;
+                ]
+              | _ -> []
+              )
+          | _ -> []
+    ));
+  }
+>
