@@ -7,7 +7,7 @@ A comprehensive (SI) units package.
 
 This requires Satyrographos to install. See https://github.com/na4zagin3/satyrographos.
 """
-maintainer: "SAKAMOTO Noriaki <mrty.ityt.pt@gmail.com>"
+maintainer: "puripuri2100 <puripuri2100@gmail.com>"
 authors: "puripuri2100 <puripuri2100@gmail.com>"
 license: "MIT"
 homepage: "https://github.com/puripuri2100/SATySFi-siunitx"
