@@ -15,12 +15,12 @@ bug-reports: "https://github.com/puripuri2100/SATySFi-siunitx/issues"
 dev-repo: "git+https://github.com/puripuri2100/SATySFi-siunitx.git"
 depends: [
   "satysfi" {>= "0.0.3" & < "0.0.5"}
-  "satyrographos" {>= "0.0.1" & < "0.0.2"}
+  "satyrographos" {>= "0.0.2" & < "0.0.4"}
 ]
 build: [ ]
 install: [
   ["satyrographos" "opam" "install"
-   "-name" "make-html"
+   "-name" "siunitx"
    "-prefix" "%{prefix}%"
    "-script" "%{build}%/Satyristes"]
 ]
