@@ -6,11 +6,7 @@ This is a comprehensive (SI) units package of SATySFi.
 ## Satyrographos
 
 ```
-git clone https://github.com/puripuri2100/SATySFi-siunitx.git
-
-cd SATySFi-siunitx
-
-opam pin add -v "file://$PWD"
+opam install satysfi-siunitx
 
 satyrographos install
 ```
