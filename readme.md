@@ -18,4 +18,4 @@ This package released under [the MIT license](https://github.com/puripuri2100/SA
 
 ---
 
-(c) Naoki Kaneko 2019
+(c) Naoki Kaneko 2019-2021

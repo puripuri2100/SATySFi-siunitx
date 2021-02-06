@@ -1,5 +1,5 @@
 opam-version: "2.0"
-name: "satysfi-siunitx"
+name: "satysfi-siunitx-doc"
 version: "0.1.1"
 synopsis: "A comprehensive (SI) units package"
 description: """
@@ -17,11 +17,18 @@ depends: [
   "satysfi" {>= "0.0.3" & < "0.0.7"}
   "satyrographos" {>= "0.0.2" & < "0.0.4"}
   "satysfi-dist"
+  "satysfi-siunitx" {= "%{version}%"}
 ]
-build: [ ]
-install: [
-  ["satyrographos" "opam" "install"
-   "-name" "siunitx"
+build: [
+  ["satyrographos" "opam" "build"
+   "-name" "siunitx-doc"
    "-prefix" "%{prefix}%"
    "-script" "%{build}%/Satyristes"]
 ]
+install: [
+  ["satyrographos" "opam" "install"
+   "-name" "siunitx-doc"
+   "-prefix" "%{prefix}%"
+   "-script" "%{build}%/Satyristes"]
+]
+

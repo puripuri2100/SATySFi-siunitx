@@ -2,7 +2,7 @@
 @require: code
 @require: table
 @require: itemize
-@import: ../siunitx
+@require: siunitx/siunitx
 
 
 document (|

@@ -3,12 +3,36 @@
 
 (library
   (name "siunitx")
-  (version "0.1")
+  (version "0.1.1")
   (sources
     (
      (package "siunitx.satyh" "./siunitx.satyh")
     )
   )
   (opam "satysfi-siunitx.opam")
-  (dependencies ())
-  (compatibility ((satyrographos "0.0.1"))))
+  (dependencies (
+    (dist ())
+  )))
+
+;; Library doc declaration
+(libraryDoc
+  ;; Library doc name
+  (name "siunitx-doc")
+  ;; Library version
+  (version "0.1.1")
+  ;; Working directory to build docs
+  (workingDirectory "doc")
+  ;; Build commands
+  (build
+    ;; Run SATySFi
+    ((satysfi "siunitx-ja.saty" "-o" "siunitx-ja.pdf")))
+  ;; Files
+  (sources
+    ((doc "siunitx-ja.pdf" "doc/siunitx-ja.pdf")))
+  ;; OPAM package file
+  (opam "satysfi-siunitx-doc.opam")
+  ;; Dependency
+  (dependencies
+    ((siunitx ()) ; the main library
+     (dist ())
+    )))
