@@ -99,6 +99,8 @@ direct \mmHg          : [] math-cmd
 direct \nauticalmile  : [] math-cmd
 direct \neper         : [] math-cmd
 
+direct \percent : [] math-cmd
+
 end = struct
 
 
@@ -210,5 +212,7 @@ let-math \knot         = ord `kn`
 let-math \mmHg         = ord `mmHg`
 let-math \nauticalmile = ord `M`
 let-math \neper        = ord `Np`
+
+let-math \percent = ord `%`
 
 end
