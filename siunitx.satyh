@@ -102,7 +102,7 @@ direct \neper         : [] math-cmd
 end = struct
 
 
-
+let ord = math-char MathOrd
 let unit x = math-group MathPrefix MathOrd (math-char MathOrd x)
 let prefix = math-char MathPrefix
 
@@ -151,8 +151,8 @@ let-math \mole     = unit `mol`
 
 
 let-math \celsius =
-  let-math \C = unit `C` in
-    ${\math-sup{}{\circ}\C}
+  let-math \C = ord `C` in
+    math-group MathPrefix MathOrd ${\math-sup{}{\circ}\C}
 let-math \becquerel     = unit `Bq`
 let-math \degreeCelsius = ${\celsius}
 let-math \coulomb       = unit `C`
@@ -182,9 +182,9 @@ let-math \hectare   = unit `ha`
 let-math \hour      = unit `h`
 let-math \litre     = unit `l`
 let-math \liter     = unit `L`
-let-math \arcminute = unit `'`
+let-math \arcminute = ord `'`
 let-math \minute    = unit `min`
-let-math \arcsecond = unit `''`
+let-math \arcsecond = ord `''`
 let-math \tonne     = unit `t`
 
 
