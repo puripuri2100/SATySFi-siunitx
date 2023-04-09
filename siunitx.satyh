@@ -103,7 +103,7 @@ end = struct
 
 
 
-let ord = math-char MathOrd
+let unit x = math-group MathPrefix MathOrd (math-char MathOrd x)
 let prefix = math-char MathPrefix
 
 let-inline ctx \si si = embed-math ctx ${#si}
@@ -137,78 +137,78 @@ let-math \yotta = prefix `Y`
 
 
 
-let-math \gram     = ord `g`
-let-math \second   = ord `s`
-let-math \ampere   = ord `A`
-let-math \candela  = ord `cd`
-let-math \kelvin   = ord `K`
+let-math \gram     = unit `g`
+let-math \second   = unit `s`
+let-math \ampere   = unit `A`
+let-math \candela  = unit `cd`
+let-math \kelvin   = unit `K`
 let-math \kilogram = ${\kilo\gram}
-let-math \metre    = ord `m`
+let-math \metre    = unit `m`
 let-math \meter    = ${\metre}
 let-math \kilometre = ${\kilo\metre}
 let-math \kilometer = ${\kilo\meter}
-let-math \mole     = ord `mol`
+let-math \mole     = unit `mol`
 
 
 let-math \celsius =
-  let-math \C = ord `C` in
+  let-math \C = unit `C` in
     ${\math-sup{}{\circ}\C}
-let-math \becquerel     = ord `Bq`
+let-math \becquerel     = unit `Bq`
 let-math \degreeCelsius = ${\celsius}
-let-math \coulomb       = ord `C`
-let-math \farad         = ord `F`
-let-math \gray          = ord `Gy`
-let-math \hertz         = ord `Hz`
-let-math \henry         = ord `H`
-let-math \joule         = ord `J`
-let-math \katal         = ord `kat`
-let-math \lumen         = ord `lm`
-let-math \lux           = ord `lx`
-let-math \newton        = ord `N`
-let-math \ohm           = ord `Ω`
-let-math \pascal        = ord `Pa`
-let-math \radian        = ord `rad`
-let-math \siemens       = ord `S`
-let-math \sievert       = ord `Sv`
-let-math \steradian     = ord `sr`
-let-math \tesla         = ord `T`
-let-math \volt          = ord `V`
-let-math \watt          = ord `W`
-let-math \weber         = ord `Wb`
+let-math \coulomb       = unit `C`
+let-math \farad         = unit `F`
+let-math \gray          = unit `Gy`
+let-math \hertz         = unit `Hz`
+let-math \henry         = unit `H`
+let-math \joule         = unit `J`
+let-math \katal         = unit `kat`
+let-math \lumen         = unit `lm`
+let-math \lux           = unit `lx`
+let-math \newton        = unit `N`
+let-math \ohm           = unit `Ω`
+let-math \pascal        = unit `Pa`
+let-math \radian        = unit `rad`
+let-math \siemens       = unit `S`
+let-math \sievert       = unit `Sv`
+let-math \steradian     = unit `sr`
+let-math \tesla         = unit `T`
+let-math \volt          = unit `V`
+let-math \watt          = unit `W`
+let-math \weber         = unit `Wb`
 
-let-math \day       = ord `d`
+let-math \day       = unit `d`
 let-math \degree    = ${\math-sup{}{\circ}}
-let-math \hectare   = ord `ha`
-let-math \hour      = ord `h`
-let-math \litre     = ord `l`
-let-math \liter     = ord `L`
-let-math \arcminute = ord `'`
-let-math \minute    = ord `min`
-let-math \arcsecond = ord `''`
-let-math \tonne     = ord `t`
+let-math \hectare   = unit `ha`
+let-math \hour      = unit `h`
+let-math \litre     = unit `l`
+let-math \liter     = unit `L`
+let-math \arcminute = unit `'`
+let-math \minute    = unit `min`
+let-math \arcsecond = unit `''`
+let-math \tonne     = unit `t`
 
 
-let-math \astronomicalunit = ord `au`
-let-math \atomicmassunit   = ord `u`
+let-math \astronomicalunit = unit `au`
+let-math \atomicmassunit   = unit `u`
 let-math \bohr             = ${\math-sub{a}{0}}
 let-math \clight           = ${\math-sub{c}{0}}
-let-math \dalton           = ord `Da`
+let-math \dalton           = unit `Da`
 let-math \electronmass     = ${\math-sub{m}{e}}
-let-math \electronvolt     = ord `eV`
+let-math \electronvolt     = unit `eV`
 let-math \elementarycharge = ${e}
 let-math \hartree =
-  let-math \h = ord `h` in
+  let-math \h = unit `h` in
     ${\math-sub{E}{\h}}
-%let-math \planckbar = ord `¯h`
+%let-math \planckbar = unit `¯h`
 
-let-math \angstrom     = ord `Å`
-let-math \bar          = ord `bar`
-let-math \barn         = ord `b`
-let-math \bel          = ord `B`
-let-math \decibel      = ord `dB`
-let-math \knot         = ord `kn`
-let-math \mmHg         = ord `mmHg`
-let-math \nauticalmile = ord `M`
-let-math \neper        = ord `Np`
+let-math \angstrom     = unit `Å`
+let-math \bar          = unit `bar`
+let-math \barn         = unit `b`
+let-math \bel          = unit `B`
+let-math \decibel      = unit `dB`
+let-math \knot         = unit `kn`
+let-math \mmHg         = unit `mmHg`
+let-math \nauticalmile = unit `M`
+let-math \neper        = unit `Np`
 
 end
